@@ -72,6 +72,7 @@ public class Task_4 {
     }
     private static int[] Offset3(int[] array, int n) {
         int len = array.length;
+        if (n > 0) {
             for (int m = 0; m < n; m++) {
                 int temp = array[0];
                 int temp2 = temp;
@@ -84,6 +85,18 @@ public class Task_4 {
                     }
                 }
             }
+        } else {
+            for (int m = 0; m < -n; m++) {
+                int temp = array[len-1];
+                array[len-1] = array[0];
+                int temp2;
+                for (int i = len-2; i >= 0; i--) {
+                    temp2 = array[i];
+                    array[i] = temp;
+                    temp = temp2;
+                }
+            }
+        }
             return array;
     }
 }
